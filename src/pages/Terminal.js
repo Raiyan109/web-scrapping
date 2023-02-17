@@ -18,9 +18,7 @@ const Terminal = () => {
         fetchScrapedData()
     }, [])
 
-    // const search = (data) => {
-    //     return data?.filter(d => d.name?.toLowerCase()?.includes(q))
-    // }
+
     const search = data?.result?.filter((filteredData) => {
         return Object.keys(filteredData).some((key) =>
             filteredData[key].toString().toLowerCase().includes(q.toLowerCase())
@@ -39,13 +37,7 @@ const Terminal = () => {
                 <p>Welcome to the terminal interface!</p>
                 <p>Enter a command to get started:</p>
                 <input type="search" placeholder="Search" onChange={(e) => setQ(e.target.value)} />
-                {/* <div>
-                    {data?.result && data?.result?.filter(d => d.name?.toLowerCase()?.includes(q))?.map(d => (
-                        <li key={d.rank}>{d.name}</li>
-                    ))}
-                </div>
 
-                <Table data={data} /> */}
 
                 <table style={{ fontFamily: "'Courier New', monospace", border: '2px solid #000000', backgroundColor: '#4A4A4A', width: '100%', height: '200px', textAlign: 'center', borderCollapse: 'collapse' }}>
                     <thead>
