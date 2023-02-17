@@ -8,7 +8,7 @@ const Terminal = () => {
 
     useEffect(() => {
         const fetchScrapedData = async () => {
-            const response = await fetch('http://localhost:5500/api/web-scrapping')
+            const response = await fetch('https://web-scrapping-server.vercel.app/api/web-scrapping')
             const json = await response.json()
 
             if (response.ok) {
