@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Table from './Table';
+
 import './Terminal.css';
-import TerminalDetail from './TerminalDetail';
+
 const Terminal = () => {
     const [data, setData] = useState([])
     const [q, setQ] = useState('')
@@ -47,20 +47,40 @@ const Terminal = () => {
 
                 <Table data={data} /> */}
 
-                <table>
+                <table style={{ fontFamily: "'Courier New', monospace", border: '2px solid #000000', backgroundColor: '#4A4A4A', width: '100%', height: '200px', textAlign: 'center', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>City</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Index</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Rank</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Name</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Price</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>1 Hour</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>24 Hours</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>7 day</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Market Cap</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Volume (24h)</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Circulating Supply</th>
+                            <th style={{ border: '2px solid #000000', padding: '3px 2px' }}>Last 7 days</th>
                         </tr>
                     </thead>
                     <tbody>
                         {search?.map((filteredData, index) => (
                             <tr key={index}>
-                                <td>{filteredData.name}</td>
-                                <td>{filteredData.price}</td>
-                                <td>{filteredData.volume}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{index}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.rank ?
+                                    filteredData.rank
+                                    :
+                                    'No rank'
+                                }</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.name}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.price}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.hour}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.day}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.week}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.marketCap}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.volume}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.circulatingSupply}</td>
+                                <td style={{ border: '2px solid #000000', padding: '3px 2px' }}>{filteredData.last7days}</td>
                             </tr>
                         ))}
                     </tbody>
